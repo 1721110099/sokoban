@@ -91,18 +91,26 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   def moverAbajo(self):
     """Controla el movimiento del muñeco hacia abajo
     """
-    #12 - Espacio, personaje -> [0,5] -> [0,5]
+    #12 - Espacio, personaje -> [5,0] -> [0,5]
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 0:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila + 1][self.personaje_columna] = 5
       self.personaje_fila = self.personaje_fila + 1
+  def moverArriba(self):
+    """Controla el movimiento del muñeco hacia arriba
+    """
+    # - Espacio, personaje -> [0,5] -> [5,0]
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.personaje_fila = self.personaje_fila - 1
 
   def jugar(self):
     """Controla el flujo del juego
     """
     while True:
       self.imprimirMapa()
-      opciones = "d-derecha, s-abajo, a-izquierda"
+      opciones = "d-derecha, s-abajo, a-izquierda, w-arriba"
       print(opciones)
       movimiento = input("Mover a: ")
       if movimiento == "d":
@@ -111,6 +119,8 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         self.moverAbajo()
       elif movimiento == "a":
         self.moverIzquierda()
+      elif movimiento == "w":
+        self.moverArriba()
       elif movimiento == "q":
         break
 
