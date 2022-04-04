@@ -35,7 +35,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   
   mapa = [
       [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-      [1,5,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+      [1,5,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
       [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
       [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
       [1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
@@ -73,32 +73,44 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 0:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
-      self.personaje_columna += 1
+      self.personaje_columna = self.personaje_columna + 1
+    #01 -Personaje, meta -> [5,3] -> [0,8]
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 8
+      self.personaje_columna = self.personaje_columna + 1
 
+  def moverIzquierda(self):
+    """controla el movimiento del personaje hacia la izquiera
+    """
+    # - Personaje, espacio -> [0,5] -> [5,0]
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna - 1] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna - 1] = 5
+      self.personaje_columna = self.personaje_columna - 1
   def moverAbajo(self):
     """Controla el movimiento del muñeco hacia abajo
-    12 -> [0]
-    [0] -> [5]
-    [5] -> [0]
     """
     #12 - Espacio, personaje -> [0,5] -> [0,5]
-    if self.mapa[self.personaje_fila][self.personaje_columna] == 0 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 5:
-      self.mapa[self.personaje_fila][self.personaje_columna] = 5
-      self.mapa[self.personaje_fila + 1][self.personaje_columna] = 0
-      self.personaje_fila -= 1
+    if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila + 1][self.personaje_columna] = 5
+      self.personaje_fila = self.personaje_fila + 1
 
   def jugar(self):
     """Controla el flujo del juego
     """
     while True:
       self.imprimirMapa()
-      opciones = "d-derecha, s-abajo"
+      opciones = "d-derecha, s-abajo, a-izquierda"
       print(opciones)
       movimiento = input("Mover a: ")
       if movimiento == "d":
         self.moverDerecha()
       elif movimiento == "s":
         self.moverAbajo()
+      elif movimiento == "a":
+        self.moverIzquierda()
       elif movimiento == "q":
         break
 
