@@ -10,8 +10,8 @@ class Sokoban:
    
 Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
 
-  #Derecha
-  00 - Personaje, espacio -> [5,0] -> [0,5] 
+  
+  00 - Personaje, espacio 
   01 - Personaje, meta 
   02 - Personaje, caja, espacio 
   03 - Personaje, caja, meta 
@@ -24,8 +24,6 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   10 - Personaje_meta, caja_meta, espacio 
   11 - Personaje_meta, caja_meta, meta 
 
-  #Abajo
-  12 - Espacio, personaje -> [0,5] -> [5.0]
 
   Derecha -> personaje_columna + 1
   Izquierda -> personaje_columna -1
@@ -35,9 +33,9 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   
   mapa = [
       [1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-      [1,5,0,0,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+      [1,5,4,0,0,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
       [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
-      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
+      [1,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
       [1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
       [0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
       [0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0],
@@ -75,11 +73,71 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
       self.personaje_columna = self.personaje_columna + 1
     #01 -Personaje, meta -> [5,3] -> [0,8]
-    if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila][self.personaje_columna + 1] = 8
       self.personaje_columna = self.personaje_columna + 1
+    #02 - Personaje, caja, espacio -> [5,4,0] -> [0,5,4]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
+      self.personaje_columna = self.personaje_columna + 1
+    #03 - Personaje, caja, meta -> [5,4,3] -> [0,5,7]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
+      self.personaje_columna = self.personaje_columna + 1
+    #04 - Personaje, caja_meta, espacio -> [5,7,0] -> [0,8,4]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
+      self.personaje_columna = self.personaje_columna + 1
+    #05 - Personaje, caja_meta, meta -> [5,7,3] -> [0,8,7]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
+      self.personaje_columna = self.personaje_columna + 1
+    #06 -Personaje_meta, espacio -> [8,0] -> [3,5]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
+      self.personaje_columna = self.personaje_columna + 1
+    #07 -Personaje_meta, meta -> [8,3] -> [3,8]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 8
+      self.personaje_columna = self.personaje_columna + 1
+    #08 - Personaje_meta, caja, espacio -> [8,4,0] -> [3,5,4]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 5
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
+      self.personaje_columna = self.personaje_columna + 1
+    #09 - Personaje_meta, caja, meta -> [8,4,3] -> [3,8,7]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
+      self.personaje_columna = self.personaje_columna + 1
+    #10 - Personaje_meta, caja_meta, espacio -> [8,7,0] -> [3,8,4]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
+      self.personaje_columna = self.personaje_columna + 1
+    #11 - Personaje_meta, caja_meta, espacio -> [8,7,3] -> [3,8,7]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
+      self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
+      self.personaje_columna = self.personaje_columna + 1
+      
 
+      
   def moverIzquierda(self):
     """controla el movimiento del personaje hacia la izquiera
     """
