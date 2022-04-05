@@ -211,11 +211,32 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   def moverAbajo(self):
     """Controla el movimiento del muñeco hacia abajo
     """
-    #12 - Espacio, personaje -> [5,0] -> [0,5]
+    #00 - Personaje, espacio -> [5,0] -> [0,5]
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 0:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila + 1][self.personaje_columna] = 5
       self.personaje_fila = self.personaje_fila + 1
+    #01 - Personaje, meta -> [5,3] -> [0,8]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila + 1][self.personaje_columna] = 8
+      self.personaje_fila = self.personaje_fila + 1
+    #02 - Personaje, caja, espacio -> [5,4,0] -> [0,5,4]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila +1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila +2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila +1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila +2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila + 1
+    #03 - Personaje, caja, meta -> [5,4,3] -> [0,5,7]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila +1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila +2][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila +1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila +2][self.personaje_columna] = 7
+      self.personaje_fila = self.personaje_fila + 1
+
+
+
+        
   def moverArriba(self):
     """Controla el movimiento del muñeco hacia arriba
     """
