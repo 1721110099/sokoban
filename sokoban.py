@@ -33,18 +33,18 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   
   mapa = [
       [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-      [1,5,0,3,3,3,0,0,3,0,3,0,0,4,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
-      [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
+      [1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0],
+      [1,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1],
       [1,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
-      [1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
-      [0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
-      [0,0,0,1,1,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0],
+      [1,1,1,1,1,1,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
+      [0,0,0,0,0,1,0,3,0,0,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1],
+      [0,0,0,1,1,1,0,3,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,0],
       [0,0,1,1,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
       [0,0,1,0,4,0,0,0,0,0,0,1,0,0,4,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
-      [0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
+      [0,0,0,1,0,0,0,3,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0],
       [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0],
-      [0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
-      [0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+      [0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
+      [0,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0],
       [0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0],
@@ -243,7 +243,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         self.personaje_fila = self.personaje_fila + 1
     #01 - Personaje, meta -> [5,3] -> [0,8]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 3:
-        print("MovAbaj: Personaje, meta ")
+      print("MovAbaj: Personaje, meta ")
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila + 1][self.personaje_columna] = 8
       self.personaje_fila = self.personaje_fila + 1
@@ -283,7 +283,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.personaje_fila = self.personaje_fila + 1
     #07 - Personaje_meta, meta -> [8,3] -> [3,8]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila + 1][self.personaje_columna] == 3:
-      print("MovAbaj: ")
+      print("MovAbaj: Personaje_meta, meta")
       self.mapa[self.personaje_fila][self.personaje_columna] = 3
       self.mapa[self.personaje_fila + 1][self.personaje_columna] = 8
       self.personaje_fila = self.personaje_fila + 1
@@ -302,7 +302,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.mapa[self.personaje_fila +2][self.personaje_columna] = 7
       self.personaje_fila = self.personaje_fila + 1
     #10 - Personaje_meta, caja_meta, espacio -> [8,7,0] -> [3,8,4]
-    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila +1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila +2][self.personaje_columna] == 0:
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila +1][self.personaje_columna] == 7 and self.mapa[self.personaje_fila +2][self.personaje_columna] == 0:
       print("MovAbaj: Personaje_meta, caja_meta, espacio")
       self.mapa[self.personaje_fila][self.personaje_columna] = 3
       self.mapa[self.personaje_fila +1][self.personaje_columna] = 8
