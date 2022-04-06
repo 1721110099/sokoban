@@ -135,14 +135,14 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.personaje_columna = self.personaje_columna + 1
     #10 - Personaje_meta, caja_meta, espacio -> [8,7,0] -> [3,8,4]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
-      print("MovDer: Personaje_meta, caja_meta, espacio")
+      print("MovDer:Personaje_meta, caja_meta, espacio")
       self.mapa[self.personaje_fila][self.personaje_columna] = 3
       self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
       self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
       self.personaje_columna = self.personaje_columna + 1
     #11 - Personaje_meta, caja_meta, meta -> [8,7,3] -> [3,8,7]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
-      print("MovDer: Personaje_meta, caja_meta, meta ")
+      print("MovDer:Personaje_meta, caja_meta, meta ")
       self.mapa[self.personaje_fila][self.personaje_columna] = 3
       self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
       self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
