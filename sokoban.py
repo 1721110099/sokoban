@@ -280,19 +280,19 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.mapa[self.personaje_fila +2][self.personaje_columna] = 7
       self.personaje_fila = self.personaje_fila + 1
 
-
-
-
-
-
-        
+   
   def moverArriba(self):
     """Controla el movimiento del muñeco hacia arriba
     """
-    # - Espacio, personaje -> [0,5] -> [5,0]
+    #00 - Espacio, personaje -> [0,5] -> [5,0]
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 0:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.personaje_fila = self.personaje_fila - 1
+    #01 - Meta, personaje -> [3,5] -> [8,0]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 8
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
       self.personaje_fila = self.personaje_fila - 1
 
   def jugar(self):
