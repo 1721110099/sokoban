@@ -69,9 +69,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     """
     #00 - Personaje, espacio -> [5,0] -> [0,5]
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 0:
-      self.mapa[self.personaje_fila][self.personaje_columna] = 0
-      self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
-      self.personaje_columna = self.personaje_columna + 1
+        print ("Personaje, espacio")
+        self.mapa[self.personaje_fila][self.personaje_columna] = 0
+        self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
+        self.personaje_columna = self.personaje_columna + 1
     #01 -Personaje, meta -> [5,3] -> [0,8]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 3:
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
