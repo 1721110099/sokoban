@@ -291,9 +291,75 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.personaje_fila = self.personaje_fila - 1
     #01 - Meta, personaje -> [3,5] -> [8,0]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 3:
-      self.mapa[self.personaje_fila][self.personaje_columna] = 8
-      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
       self.personaje_fila = self.personaje_fila - 1
+    #02 - Espacio, caja, personaje -> [0,4,5] -> [4,5,0]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila - 1
+    #03 - Meta, caja, personaje -> [3,4,5] -> [7,5,0]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 7
+      self.personaje_fila = self.personaje_fila - 1
+    #04 - Espacio, caja_meta, personaje -> [0,7,5] -> [4,8,0]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 7 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila - 1
+    #05 - Meta, caja_meta, personaje -> [3,7,5] -> [7,8,0]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 7 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 0
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 7
+      self.personaje_fila = self.personaje_fila - 1
+    #06 - Espacio, personaje_meta -> [0,8] -> [5,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.personaje_fila = self.personaje_fila - 1
+    #07 - Meta, personaje_meta -> [3,8] -> [8,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
+      self.personaje_fila = self.personaje_fila - 1
+    #08 - Espacio, caja, personaje_meta -> [0,4,8] -> [4,5,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila - 1
+    #09 - Espacio, caja, personaje_meta -> [0,4,8] -> [4,5,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila - 1
+    #09 - Meta, caja, personaje_meta -> [3,4,8] -> [7,5,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 4 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 5
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 7
+      self.personaje_fila = self.personaje_fila - 1
+    #10 - Espacio, caja_meta, personaje_meta -> [0,7,8] -> [4,8,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 7 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 0:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 4
+      self.personaje_fila = self.personaje_fila - 1
+    #11 - Meta, caja_meta, personaje_meta -> [3,7,8] -> [7,8,3]
+    elif self.mapa[self.personaje_fila][self.personaje_columna] == 8 and self.mapa[self.personaje_fila - 1][self.personaje_columna] == 7 and self.mapa[self.personaje_fila - 2][self.personaje_columna] == 3:
+      self.mapa[self.personaje_fila][self.personaje_columna] = 3
+      self.mapa[self.personaje_fila - 1][self.personaje_columna] = 8
+      self.mapa[self.personaje_fila - 2][self.personaje_columna] = 7
+      self.personaje_fila = self.personaje_fila - 1
+        
+        
 
   def jugar(self):
     """Controla el flujo del juego
