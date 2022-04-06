@@ -69,7 +69,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     """
     #00 - Personaje, espacio -> [5,0] -> [0,5]
     if self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna + 1] == 0:
-        print ("MovDer: Personaje, espacio")
+        print ("MovDer:Personaje, espacio")
         self.mapa[self.personaje_fila][self.personaje_columna] = 0
         self.mapa[self.personaje_fila][self.personaje_columna + 1] = 5
         self.personaje_columna = self.personaje_columna + 1
@@ -81,7 +81,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         self.personaje_columna = self.personaje_columna + 1
     #02 - Personaje, caja, espacio -> [5,4,0] -> [0,5,4]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 4 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
-      print("MovDer: Personaje, caja, espacio ")
+      print("MovDer:Personaje, caja, espacio ")
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila][self.personaje_columna +1] = 5
       self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
@@ -95,14 +95,14 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
       self.personaje_columna = self.personaje_columna + 1
     #04 - Personaje, caja_meta, espacio -> [5,7,0] -> [0,8,4]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 0:
-      print("MovDer: Personaje, caja_meta, espacio")
+      print("MovDer:Personaje, caja_meta, espacio")
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
       self.mapa[self.personaje_fila][self.personaje_columna +2] = 4
       self.personaje_columna = self.personaje_columna + 1
     #05 - Personaje, caja_meta, meta -> [5,7,3] -> [0,8,7]
     elif self.mapa[self.personaje_fila][self.personaje_columna] == 5 and self.mapa[self.personaje_fila][self.personaje_columna +1] == 7 and self.mapa[self.personaje_fila][self.personaje_columna +2] == 3:
-      print("MovDer: Personaje, caja_meta, meta ")
+      print("MovDer:Personaje, caja_meta, meta ")
       self.mapa[self.personaje_fila][self.personaje_columna] = 0
       self.mapa[self.personaje_fila][self.personaje_columna +1] = 8
       self.mapa[self.personaje_fila][self.personaje_columna +2] = 7
