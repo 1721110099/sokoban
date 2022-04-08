@@ -117,9 +117,11 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     def CajasRestantes(self):
         cajas_rest = 0
         for fila in self.mapa:
-                cajas_rest += fila.count(4) 
-                if fila.count < 0:
-                    print ("Cargando siguiente nivel...")
+                cajas_rest += fila.count(4)
+                #print(cajas_rest)
+                if  = 0:
+                    print("")
+
 
     #Posicion inicial del personaje en el mapa
     personaje_columna = 1
