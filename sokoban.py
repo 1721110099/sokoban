@@ -117,10 +117,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     def CajasRestantes(self):
         cajas_rest = 0
         for fila in self.mapa:
-                cajas_rest += fila.count(4)
-                #print(cajas_rest)
-                if  = 0:
-                    print("")
+            cajas_rest += fila.count(4)
+            #if cajas_rest == True:
+                #print("OK")
+
 
 
     #Posicion inicial del personaje en el mapa
@@ -647,6 +647,8 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         while True:
             self.imprimirMapa()
             self.CajasRestantes()
+            if self.CajasRestantes == True:
+                print("Ok")
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir"
             print(opciones)
             movimiento = input("Mover a: ")
