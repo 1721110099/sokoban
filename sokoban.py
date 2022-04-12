@@ -54,8 +54,11 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             print(fila)
 
     def posPer(self):
-        for linea in range(len(self.mapa)):
-            for columna in range (len(self.mapa))
+        for fila in range(len(self.mapa)):
+            for columna in range (len(self.mapa[fila])):
+                if self.mapa[fila][columna] == 5:
+                    self.personaje_columna = columna
+                    self.personaje_fila = fila
         
     
     def moverDerecha(self):
@@ -571,6 +574,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         while True:
             self.cargarMapa()
             self.imprimirMapa()
+            self.posPer()
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir"
             print(opciones)
             movimiento = input("Mover a: ")
