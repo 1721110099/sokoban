@@ -50,10 +50,12 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
 
     
     def imprimirMapa(self):
-            """Imprime el mapa completo
-        """
-            for fila in self.mapa:
-                print(fila)
+        for fila in self.mapa:
+            print(fila)
+
+    def posPer(self):
+        for linea in range(len(self.mapa)):
+            for columna in range (len(self.mapa))
         
     
     def moverDerecha(self):
