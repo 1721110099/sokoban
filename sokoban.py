@@ -31,17 +31,30 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
   Arriba -> personaje_fila - 1
     """
 
+    mapa = []
+    personaje_columna = 0
+    personaje_fila = 0
+    nivel = open("prueba.txt","r")
 
+    def __init__(self):
+        pass
 
+    def cargarMapa(self):
+        for ghy in self.nivel:
+            columna = []
+            for digito in ghy:
+                if digito == "\n":
+                    continue
+                columna.append(int(digito))
+            self.mapa.append(columna)
+
+    
     def imprimirMapa(self):
             """Imprime el mapa completo
         """
             for fila in self.mapa:
                 print(fila)
-    
-    #Posicion inicial del personaje en el mapa
-    personaje_columna = 1
-    personaje_fila = 1
+        
     
     def moverDerecha(self):
         """Controla el movimiento del personaje a la derecha
@@ -554,6 +567,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         """Controla el flujo del juego
     """
         while True:
+            self.cargarMapa()
             self.imprimirMapa()
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir"
             print(opciones)
