@@ -59,6 +59,8 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
                 if self.mapa[fila][columna] == 5:
                     self.personaje_columna = columna
                     self.personaje_fila = fila
+
+
         
     
     def moverDerecha(self):
@@ -575,7 +577,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             self.cargarMapa()
             self.imprimirMapa()
             self.posPer()
-            opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir"
+            opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
             print(opciones)
             movimiento = input("Mover a: ")
             if movimiento == "d":
