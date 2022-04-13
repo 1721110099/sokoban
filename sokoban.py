@@ -1,3 +1,6 @@
+from os import system, name
+import random
+
 class Sokoban:
     """
   5 - Personaje
@@ -35,6 +38,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     personaje_columna = 0
     personaje_fila = 0
     nivel = open("prueba.txt","r")
+    nivel2 = open("level1.DLD.txt")
 
     def __init__(self):
         pass
@@ -53,6 +57,11 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         for fila in self.mapa:
             print(fila)
 
+    def clear(self):
+        if name == "r":
+            system("clear")
+            
+
     def posPer(self):
         for fila in range(len(self.mapa)):
             for columna in range (len(self.mapa[fila])):
@@ -60,8 +69,17 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
                     self.personaje_columna = columna
                     self.personaje_fila = fila
 
-
-        
+    def CajasRestantes(self):
+        caj = []
+        for fila in self.mapa:
+            caj4 = fila.count(4)
+            caj.append(caj4)
+        if sum(caj) == 0:
+            self.clear()
+            print ("Cargando sig. nivel...")
+        else:
+            pass
+   
     
     def moverDerecha(self):
         """Controla el movimiento del personaje a la derecha
@@ -577,6 +595,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             self.cargarMapa()
             self.imprimirMapa()
             self.posPer()
+            self.CajasRestantes()
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
             print(opciones)
             movimiento = input("Mover a: ")
