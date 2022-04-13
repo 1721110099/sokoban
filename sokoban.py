@@ -648,10 +648,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
                 self.clear()
                 print("Son todos los niveles :(")
         self.clear()
-        print ("Nivel 2")
-        self.imprimirMapa()
+        print("cargando nivel 2")
         self.cargarMapa()
         self.posPer()
+        self.imprimirMapa()
         while self.complete == False:
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
             print(opciones)
@@ -687,5 +687,3 @@ continuar = input()
 while continuar == "s":
     juego.complete = False
     juego.continuar()
-    print("Quieres continuar? s-si/n-no")
-    continuar = input()
