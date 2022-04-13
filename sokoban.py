@@ -1,5 +1,4 @@
 from os import system, name
-import random
 
 class Sokoban:
     """
@@ -37,8 +36,8 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
     mapa = []
     personaje_columna = 0
     personaje_fila = 0
-    nivel = open("prueba.txt","r")
-    nivel2 = open("level1.DLD.txt")
+    nivel = ()
+    complete = False
 
     def __init__(self):
         pass
@@ -58,7 +57,9 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             print(fila)
 
     def clear(self):
-        if name == "r":
+        if name == "nt":
+            system("cls")
+        else:
             system("clear")
             
 
@@ -77,10 +78,11 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         if sum(caj) == 0:
             self.clear()
             print ("Cargando sig. nivel...")
+            self.complete = True
         else:
             pass
-   
-    
+
+
     def moverDerecha(self):
         """Controla el movimiento del personaje a la derecha
     """
@@ -589,25 +591,101 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             self.personaje_fila = self.personaje_fila - 1
 
     def jugar(self):
-        """Controla el flujo del juego
-    """
-        while True:
-            self.cargarMapa()
-            self.imprimirMapa()
-            self.posPer()
-            self.CajasRestantes()
+        print("¿Listo? s-si/n-no")
+        inicio = False
+        while inicio == False:
+            kar = input()
+            if kar == "s":
+                self.nivel = open("prueba.txt","r")
+                inicio = True
+            if kar == "n":
+                print("Avisame cuando lo estes...")
+        self.clear()
+        print("cargando nivel1")
+        self.cargarMapa()
+        self.posPer()
+        self.imprimirMapa()
+        while self.complete == False:
             opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
             print(opciones)
             movimiento = input("Mover a: ")
             if movimiento == "d":
                 self.moverDerecha()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
             elif movimiento == "s":
                 self.moverAbajo()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
             elif movimiento == "a":
                 self.moverIzquierda()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
             elif movimiento == "w":
                 self.moverArriba()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
             elif movimiento == "q":
                 break
+
+    def continuar(self):
+        self.mapa = []
+        print("Quieres cargar el nivel2?: s-si/n-no")
+        inicioo = False
+        while inicioo == False:
+            car = input()
+            if car == "s":
+                self.nivel = open("prueba.txt","r")
+                inicioo = True
+            elif car == "n":
+                print ("Gracias por jugar")
+                self.clear
+            else:
+                self.clear()
+                print("Son todos los niveles :(")
+        self.clear()
+        print ("Nivel 2")
+        self.imprimirMapa()
+        self.cargarMapa()
+        self.posPer()
+        while self.complete == False:
+            opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
+            print(opciones)
+            movimiento = input("Mover a: ")
+            if movimiento == "d":
+                self.moverDerecha()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
+            elif movimiento == "s":
+                self.moverAbajo()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
+            elif movimiento == "a":
+                self.moverIzquierda()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
+            elif movimiento == "w":
+                self.moverArriba()
+                self.clear()
+                self.imprimirMapa()
+                self.CajasRestantes()
+            elif movimiento == "q":
+                break
+            
+            
 juego = Sokoban()
 juego.jugar()
+print ("Deseas continuar?... s-si/n-no")
+continuar = input()
+while continuar == "s":
+    juego.complete = False
+    juego.continuar()
+    print("Quieres continuar? s-si/n-no")
+    continuar = input()
