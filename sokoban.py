@@ -1,5 +1,6 @@
 from os import system, name
 
+
 class Sokoban:
     """
   5 - Personaje
@@ -51,7 +52,6 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
                 columna.append(int(digito))
             self.mapa.append(columna)
 
-    
     def imprimirMapa(self):
         for fila in self.mapa:
             print(fila)
@@ -61,11 +61,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             system("cls")
         else:
             system("clear")
-            
 
     def posPer(self):
         for fila in range(len(self.mapa)):
-            for columna in range (len(self.mapa[fila])):
+            for columna in range(len(self.mapa[fila])):
                 if self.mapa[fila][columna] == 5:
                     self.personaje_columna = columna
                     self.personaje_fila = fila
@@ -77,11 +76,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
             caj.append(caj4)
         if sum(caj) == 0:
             self.clear()
-            print ("Cargando sig. nivel...")
+            print("¡Nivel completado!")
             self.complete = True
         else:
             pass
-
 
     def moverDerecha(self):
         """Controla el movimiento del personaje a la derecha
@@ -596,7 +594,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         while inicio == False:
             kar = input()
             if kar == "s":
-                self.nivel = open("prueba.txt","r")
+                self.nivel = open("nivel1.JDLD", "r")
                 inicio = True
             if kar == "n":
                 print("Avisame cuando lo estes...")
@@ -639,10 +637,10 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         while inicioo == False:
             car = input()
             if car == "s":
-                self.nivel = open("prueba.txt","r")
+                self.nivel = open("nivel2.JDLD", "r")
                 inicioo = True
             elif car == "n":
-                print ("Gracias por jugar")
+                print("Gracias por jugar")
                 self.clear
             else:
                 self.clear()
@@ -653,7 +651,7 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
         self.posPer()
         self.imprimirMapa()
         while self.complete == False:
-            opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir, r-reiniciar"
+            opciones = "d-derecha, s-abajo, a-izquierda, w-arriba, q-salir"
             print(opciones)
             movimiento = input("Mover a: ")
             if movimiento == "d":
@@ -678,11 +676,11 @@ Reglas validas para moverse (Arriba, Derecha, Abajo, Izquierda)
                 self.CajasRestantes()
             elif movimiento == "q":
                 break
-            
-            
+
+
 juego = Sokoban()
 juego.jugar()
-print ("Deseas continuar?... s-si/n-no")
+print("Deseas continuar?... s-si/n-no")
 continuar = input()
 while continuar == "s":
     juego.complete = False
